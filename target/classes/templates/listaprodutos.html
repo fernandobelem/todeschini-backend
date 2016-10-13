@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Produtos</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<a href="index" class="btn btn-lg btn-primary">Voltar</a>
+	<div class="container">
+		<div id="listaDeProdutos">
+			<h4>Lista de Produtos</h4>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Descricao</th>
+					</tr>
+				</thead>
+				<tr th:each="produto : ${produtos}">
+					<td><span th:text="${produto.nome}"></span></td>
+					<td><span th:text="${produto.descricao}"></span></td>
+					<td><a th:href="@{excluirProd/} + ${produto.id}"
+						class="btn btn-danger" role="button">Excluir</a></td>
+				</tr>
+
+			</table>
+		</div>
+
+		<hr />
+
+		<form action="salvarProd" method="post">
+			<div class="form-group">
+				<label for="nome">Nome produto</label> 
+					<input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required="required"/>
+			</div>
+			<div class="form-group">
+				<label for="descricao">Descrição</label> <input type="text"
+					class="form-control" id="descricao" name="descricao"
+					placeholder="Descrição" />
+			</div>
+			<button type="submit" class="btn btn-success">Salvar</button>
+		</form>
+
+	</div>
+
+	
+
+</body>
+</html>

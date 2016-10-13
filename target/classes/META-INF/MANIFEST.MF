@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: todeschini-mobile-admin
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: fobm
+Implementation-Vendor-Id: com.br.todeschini.mobile.admin
+Build-Jdk: 1.8.0_25
+Implementation-URL: http://projects.spring.io/spring-boot/todeschini-m
+ obile-admin/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
