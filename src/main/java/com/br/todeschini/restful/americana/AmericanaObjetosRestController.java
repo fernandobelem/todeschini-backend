@@ -27,21 +27,18 @@ public class AmericanaObjetosRestController {
 	@Autowired
 	CategoriaRepository catRep;
 	
-	@CrossOrigin(origins=CORS)
 	@RequestMapping("/selectObjetos")
 	public List<ObjetosAmbiente> selectObjetos(
 			@RequestParam(value = "idCategoria", defaultValue="1") Long idCategoria){
 		return objRep.findByCategoria(catRep.findOne(idCategoria));
 	}
 	
-	@CrossOrigin(origins=CORS)
 	@RequestMapping("/selectTodosObjetos")
 	public Iterable<ObjetosAmbiente> selectTodosObjetos(){
 		
 		return objRep.findAll();
 	}
 	
-	@CrossOrigin(origins=CORS)
 	@RequestMapping("/selectCategorias")
 	public Iterable<Categoria> selectCategorias(){
 		
