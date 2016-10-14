@@ -3,13 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Objetos</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="css/estilo.css"/>
 </head>
 <body>
 
-	<a href="/" class="btn btn-lg btn-primary">Voltar</a>
 	<div class="container">
-		<div id="listacategorias">
+		<a href="/" class="btn btn-lg btn-primary btn-voltar">Voltar</a>
+		<div id="listaobjetos">
 			<h4>Lista de Objetos</h4>
 			<table class="table table-hover">
 				<thead>
@@ -35,7 +38,7 @@
 				<input type="text" class="form-control" id="nomeObjeto" name="nomeObjeto" placeholder="Nome" required="required"/>
 			</div>
 			<div class="form-group">
-				<label for="nomeCategoria">Categorias</label> <select
+				<label for="nomeCategoria">Categorias</label> <select required="required"
 					class="form-control" id="nomeCategoria" name="nomeCategoria">
 					<option th:each="cat : ${cats}">
 						<span th:text="${cat.nome}"></span>
@@ -48,10 +51,6 @@
 		</form>
 
 	</div>
-
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 </html>

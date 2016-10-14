@@ -18,7 +18,7 @@ public class ObjetosAmbiente {
 	public ObjetosAmbiente() {
 	}
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = {javax.persistence.CascadeType.ALL})
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Categoria categoria;
 
 	public Long getId() {

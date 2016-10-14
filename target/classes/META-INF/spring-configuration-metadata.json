@@ -2,7 +2,7 @@
   "groups": [{
     "name": "spring.datasource",
     "type": "javax.sql.DataSource",
-    "sourceType": "com.br.config.DatabaseConfig",
+    "sourceType": "com.br.todeschini.config.DatabaseConfig",
     "sourceMethod": "public javax.sql.DataSource dataSource() "
   }],
   "properties": [],

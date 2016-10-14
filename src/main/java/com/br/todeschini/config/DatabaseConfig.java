@@ -1,4 +1,4 @@
-package com.br.config;
+package com.br.todeschini.config;
 
 import javax.sql.DataSource;
 

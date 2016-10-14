@@ -19,7 +19,6 @@ public class ProdutosController {
 
 	@RequestMapping("listaprodutos")
 	public String lista(Model model) {
-		insertDummy();
 		carregarTabela(model);
 		return "listaprodutos";
 	}
@@ -49,14 +48,6 @@ public class ProdutosController {
 	private void carregarTabela(Model model) {
 		Iterable<Produto> produtos = rep.findAll();
 		model.addAttribute("produtos", produtos);
-	}
-
-	//For test only
-	private void insertDummy() {
-		if (!rep.findAll().iterator().hasNext()) {
-			rep.save(new Produto("Cozinha", "Cozinha planejada"));
-			rep.save(new Produto("Quarto", "Quarto planejada"));
-		}
 	}
 
 }
