@@ -12,7 +12,6 @@ import com.br.todeschini.model.americana.ObjetosAmbiente;
 import com.br.todeschini.repository.americana.CategoriaRepository;
 import com.br.todeschini.repository.americana.ObjetoRepository;
 
-
 @RestController
 public class AmericanaObjetosRestController {
 	
