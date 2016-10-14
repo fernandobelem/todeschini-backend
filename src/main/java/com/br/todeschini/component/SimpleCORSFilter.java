@@ -1,4 +1,4 @@
-package com.br.config;
+package com.br.todeschini.component;
 
 import java.io.IOException;
 import javax.servlet.Filter;
@@ -19,6 +19,7 @@ public class SimpleCORSFilter implements Filter {
 	private final Logger log = LoggerFactory.getLogger(SimpleCORSFilter.class);
 
 	public SimpleCORSFilter() {
+		System.out.println("SimpleCORSFilter init");
 	    log.info("SimpleCORSFilter init");
 	}
 	
