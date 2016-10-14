@@ -5,15 +5,14 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.br.todeschini.model.americana.Categoria;
-import com.br.todeschini.model.americana.ObjetosAmbiente;
 import com.br.todeschini.repository.americana.CategoriaRepository;
+import com.br.todeschini.repository.americana.ObjetoRepository;
 
 @Controller
 public class CategoriaController {
@@ -21,6 +20,9 @@ public class CategoriaController {
 	
 	@Autowired
 	CategoriaRepository catRep;
+	
+	@Autowired
+	ObjetoRepository objRep;
 	
 	@RequestMapping("listacategorias")
 	public String lista(Model model) {
@@ -45,7 +47,7 @@ public class CategoriaController {
 	public String excluir(@PathVariable("id") Long id, Model model, HttpServletRequest request){
 		
 		Categoria cat = catRep.findOne(id);
-		if(!existsObjetoVinculado(cat)){
+		if(naoExisteObjetoVinculado(cat)){
 			catRep.delete(cat);
 			System.out.println("[Exclusão de categoria] Categoria: " + cat.getNome());
 		}		
@@ -58,17 +60,8 @@ public class CategoriaController {
 		model.addAttribute("categorias", categoria);
 	}
 	
-	public boolean existsObjetoVinculado(Categoria categoria){
-		
-		if(!categoria.getObjetosAmbiente().isEmpty()) {
-			System.out.println("ERRO: Não é possivel excluir devido a vinculo com objeto");
-			for (ObjetosAmbiente oa : categoria.getObjetosAmbiente()) {
-				System.out.println("Objetos relacionados: " + oa.getNome());
-			}
-			return true;
-		}
-		
-		return false;
+	public boolean naoExisteObjetoVinculado(Categoria categoria){
+		return objRep.findByCategoria(categoria).isEmpty();
 	}
 
 }

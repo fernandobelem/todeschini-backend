@@ -1,12 +1,8 @@
 package com.br.todeschini.model.americana;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity(name="categoria")
 public class Categoria {
@@ -17,24 +13,8 @@ public class Categoria {
 	
 	private String nome;
 	
-	@OneToMany(mappedBy = "categoria")
-	private Set<ObjetosAmbiente> objetosAmbiente;
-	
 	public Categoria() {
 	}
-
-	public Set<ObjetosAmbiente> getObjetosAmbiente() {
-		if(objetosAmbiente == null){
-			objetosAmbiente = new HashSet<ObjetosAmbiente>();
-		}
-		return objetosAmbiente;
-	}
-
-
-	public void setObjetosAmbiente(Set<ObjetosAmbiente> objetosAmbiente) {
-		this.objetosAmbiente = objetosAmbiente;
-	}
-
 
 	public Long getId() {
 		return id;

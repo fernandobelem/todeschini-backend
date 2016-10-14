@@ -1,7 +1,6 @@
 package com.br.todeschini.model.americana;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -18,7 +17,7 @@ public class ObjetosAmbiente {
 	public ObjetosAmbiente() {
 	}
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne()
 	private Categoria categoria;
 
 	public Long getId() {
@@ -50,7 +49,5 @@ public class ObjetosAmbiente {
 		this.nome = nome;
 		this.categoria = categoria;
 	}
-	
-	
 	
 }
